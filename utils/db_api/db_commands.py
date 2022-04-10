@@ -1,11 +1,11 @@
-from utils.db_api.models import Degree, Department,  Institute, Question, Speciality, Message
-#from models import Degree, Department, Institute, Speciality, Question, Message
+#from utils.db_api.models import Degree, Department,  Institute, Question, Speciality, Message, Differentquestion
+from models import Degree, Department, Institute, Speciality, Question, Message, Differentquestion
 
 from typing import List
 from sqlalchemy import and_
 
-from utils.db_api.database import db
-#from database import db
+#from utils.db_api.database import db
+from database import db
 
 
 async def add_degrees(**kwargs):
@@ -117,3 +117,16 @@ async def get_message_id(chat_id, question_callbackdata):
 
 async def delete_message(message_id):
     return await Message.delete.where(Message.message_id == message_id).gino.status()
+
+#----------------------------------------------------------
+
+async def add_different_question(**kwargs):
+    return await Differentquestion(**kwargs).create()
+
+async def get_differentquestion_result(INSTITUTE_ID, question_callbackdata):
+    return await Differentquestion.select('question_result').where(
+            and_(
+                Differentquestion.institute_id == INSTITUTE_ID,
+                Differentquestion.question_callbackdata == question_callbackdata
+            )
+        ).gino.scalar()

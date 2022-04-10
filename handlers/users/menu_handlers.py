@@ -34,12 +34,12 @@ async def list_degrees(message: Union[types.Message, types.CallbackQuery], **kwa
     markup = await degrees_keyboard()
 
     if isinstance(message, types.Message):
-        await message.answer(f"{message['from']['first_name']}, пожалуйста выберите степень на которой вы обучаетесь:", reply_markup=markup)
+        await message.answer(f"{message['from']['first_name']}, пожалуйста выберите уровень, на котором вы обучаетесь:", reply_markup=markup)
 
     elif isinstance(message, types.CallbackQuery):
         call = message
         await call.message.edit_text(
-            text=f"{call['from']['first_name']}, пожалуйста выберите степень на которой вы обучаетесь:"
+            text=f"{call['from']['first_name']}, пожалуйста выберите уровень, на котором вы обучаетесь:"
         )
 
         await call.message.edit_reply_markup(markup)
@@ -129,8 +129,10 @@ async def list_menu3(callback: types.CallbackQuery, degree, speciality, level, m
         markup = await menu3_keyboard(degree, speciality, level, menu1, menu2)
     else:
         await send_file(menu2, callback)
-
-        res_text = await get_question_result(menu2)
+        if menu2 == "qn_16":
+            res_text = await get_differentquestion_result(INSTITUTE_ID, menu2)
+        else:
+            res_text = await get_question_result(menu2)
         await callback.message.edit_text(text = res_text)
 
         markup = show_menu_back_markup(degree, speciality, int(level), menu1, menu2, menu3)
@@ -147,7 +149,7 @@ async def list_menu3(callback: types.CallbackQuery, degree, speciality, level, m
     await callback.message.edit_reply_markup(markup)
 
 async def show_last_menu(callback: types.CallbackQuery, degree, speciality, level, menu1, menu2, menu3):
-    res_text = await get_question_result(menu3)
+    res_text = await get_differentquestion_result(INSTITUTE_ID, menu3)
     markup = show_menu_back_markup(degree, speciality, int(level), menu1, menu2, menu3)
     await send_file(menu3, callback)
     await callback.message.edit_text(text = res_text)
