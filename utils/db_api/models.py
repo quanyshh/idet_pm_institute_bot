@@ -2,8 +2,8 @@
 from email.policy import default
 from sqlalchemy import sql, Column, Sequence
 
-#from utils.db_api.database import db
-from database import db
+from utils.db_api.database import db
+#from database import db
 
 
 class Degree(db.Model):

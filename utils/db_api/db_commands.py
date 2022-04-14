@@ -1,11 +1,11 @@
-#from utils.db_api.models import Degree, Department,  Institute, Question, Speciality, Message, Differentquestion
-from models import Degree, Department, Institute, Speciality, Question, Message, Differentquestion
+from utils.db_api.models import Degree, Department,  Institute, Question, Speciality, Message, Differentquestion
+#from models import Degree, Department, Institute, Speciality, Question, Message, Differentquestion
 
 from typing import List
 from sqlalchemy import and_
 
-#from utils.db_api.database import db
-from database import db
+from utils.db_api.database import db
+#from database import db
 
 
 async def add_degrees(**kwargs):

@@ -129,7 +129,7 @@ async def list_menu3(callback: types.CallbackQuery, degree, speciality, level, m
         markup = await menu3_keyboard(degree, speciality, level, menu1, menu2)
     else:
         await send_file(menu2, callback)
-        if menu2 == "qn_16":
+        if menu2 in ["qn_16", "qn_24", "qn_25"]:
             res_text = await get_differentquestion_result(INSTITUTE_ID, menu2)
         else:
             res_text = await get_question_result(menu2)
