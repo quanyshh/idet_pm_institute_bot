@@ -211,7 +211,7 @@ async def list_menu2(callback: types.CallbackQuery, language, degree, speciality
                 data_question = await get_question_result(menu1)
                 data_text = f"{data_question} {data_institute.second_deputy_info}"
             elif menu1=="qn_11":
-                data_text = await get_differentquestion_result_kaz(INSTITUTE_ID, menu1)
+                data_text = await get_differentquestion_result(INSTITUTE_ID, menu1)
                 markup = show_menu_back_markup_kaz(language, degree, speciality, int(level), menu1, menu2, menu3)
                 await callback.message.edit_reply_markup(markup)     
             elif menu1 == "qn_34":
