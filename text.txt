@@ -1,0 +1,35 @@
+<Message {
+    "message_id": 318, 
+    "from": {
+        "id": 5142547889, 
+        "is_bot": false, 
+        "first_name": "Gaukhar", 
+        "last_name": "Ibrayeva", 
+        "language_code": "ru"
+        }, 
+    "chat": {
+        "id": 5142547889, 
+        "first_name": "Gaukhar", 
+        "last_name": "Ibrayeva", 
+        "type": "private"
+        }, 
+        "date": 1650866468, 
+        "reply_to_message": {
+            "message_id": 316, 
+            "from": {
+                "id": 5140256932, 
+                "is_bot": true, 
+                "first_name": "IDET | Институт управления проектами", 
+                "username": "Idet_pm_institute_bot"
+                }, 
+            "chat": {
+                "id": 5142547889, 
+                "first_name": "Gaukhar", 
+                "last_name": "Ibrayeva", 
+                "type": "private"
+                }, 
+            "date": 1650866311, 
+            "text": "Пользователь Igor🃏 Simonov с ID 739500347 написал вам сообщение! Ответьте в этом чате! Текст: Confirmed"
+        }, 
+    "text": "Ок"
+}
